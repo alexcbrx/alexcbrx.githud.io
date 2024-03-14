@@ -1,0 +1,106 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header, footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.title {
+    margin: 0;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h1, h2 {
+    color: #000;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.justified, p, h2 {
+    text-align: justify;
+    line-height: 1.8;
+}
+
+/* Imágenes */
+.image-gallery, .image-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Botón de descarga */
+.download-button {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #040077;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.download-button:hover {
+    background-color: #3434ff;
+}
+
+/* Imágenes justificadas */
+.justified-image {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* Contenedor de sección */
+.section-container, .special-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Sección especial */
+.special-section {
+    background-color: rgb(191, 214, 255);
+}
+
+.image-gallery, .image-row {
+    display: flex;
+    justify-content: center; /* Centra las imágenes horizontalmente */
+    flex-wrap: wrap; /* Permite que las imágenes se ajusten automáticamente a la línea */
+    margin-top: 20px;
+    margin-bottom: 20px; /* Reduces el margen inferior */
+}
+
+.image-gallery img, .image-row img {
+    max-width: 170px; /* Ancho máximo de las imágenes */
+    height: auto;
+    margin: 0 50px 30px 0; /* Espacio entre imágenes */
+    transition: transform 0.3s ease; /* Agrega una transición suave */
+}
+
+.image-gallery img:hover, .image-row img:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el cursor */
+}
+
+
+

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Universidad Tecnologica de Acapulco</title>
+  <link rel="icon" href="/app/static/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" media="all" href="/templates/css/reglamento.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<style>
+  :root {
+    --primary-color: #0c3483;
+    --secondary-color: #285a31;
+    --hover-color: #373535;
+  }
+
+  header {
+    margin-bottom: 100px;
+  }
+
+  .logo {
+    width: 65px;
+    position: absolute;
+    top: 15px;
+    left: 35px;
+    z-index: 9999;
+  }
+
+  .navbar {
+    color: #ffffff;
+    background-color: var(--primary-color);
+    padding: 0;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-item {
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color 0.5s, border-radius 0.3s;
+  }
+
+  .nav-item:hover {
+    background-color: var(--hover-color);
+    background-blend-mode: saturation lighten;
+    border-radius: 12px;
+  }
+
+  .nav-item:hover .txt {
+    color: #ffffff;
+    transition: color 0.3s;
+  }
+
+  .dropdown-item {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s, background-color 0.3s, padding 0.3s, backdrop-filter 0.3s;
+  }
+
+  .dropdown-item:hover {
+    color: #ffffff;
+    background-color: var(--hover-color);
+    background-blend-mode: multiply, multiply;
+    padding: auto;
+    backdrop-filter: blur(10px);
+  }
+
+  .imagen1{
+
+position: absolute;
+top: 200px;
+
+right: 930px;
+width: 350px;
+height: auto;
+}
+.imagen2{
+
+position: absolute;
+top: 230px;
+
+right: 500px;
+width: 350px;
+height: auto;
+}
+.imagen3{
+
+position: absolute;
+top: 200px;
+
+right: 70px;
+width: 350px;
+height: auto;
+}
+
+</style>
+
+<body>
+  <body>
+    <header>
+      <div id="gMenu" class="container-xxxl fixed-top">
+        <div id="gMenuInner">
+          <nav class="navbar navbar-expand-lg navbar-dark">
+            <div id="spLogo" class="navbar-brand"><a href="{{ url_for('index') }}"><img class="logo"
+                  src="/templates/img/common/logo-uta-312371034.png" alt="Universidad Tecnologica de Acapulco"></a></div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-around" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('libreria') }}"><span class="icon"><img src="images/common/icon-library.png"
+                        alt=""></span><span class="txt"><ion-icon name="book-outline"></ion-icon> Biblioteca</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/"><span class="icon"><img src="images/common/icon-contact.png"
+                        alt=""></span><span class="txt"><ion-icon name="cafe-outline"></ion-icon> Cafeteria</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"><span class="icon"><img src="images/common/icon-access.png"
+                        alt=""></span><span class="txt"><ion-icon name="location-outline"></ion-icon> Ubicación</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/ventas"><span class="icon"><img src="images/common/icon-access.png"
+                        alt=""></span><span class="txt"><ion-icon name="bag-handle-outline"></ion-icon>
+                      Productos</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"><span class="icon"><img src="/app/static/images/common/icon-access.png"
+                        alt=""></span><span class="txt"><ion-icon name="card-outline"></ion-icon> Pagos </span></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+  
+          <nav class="navbar navbar-expand-lg navbar-dark">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-around" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="quienesSomosDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    ¿Quienes somos?
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="quienesSomosDropdown">
+                    <li><a class="dropdown-item" href="{{ url_for('rectoria') }}">Rectoria</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('psicologia') }}">Psicologia</a></li>
+                    <li><a class="dropdown-item" href="">historia</a></li>
+                    <li><a class="dropdown-item" href="">Modelo educativo</a></li>
+                    <li><a class="dropdown-item" href="">Directorio</a></li>
+                    <li><a class="dropdown-item" href="">Red Conocer</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="aspirantesDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Aspirantes
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="aspirantesDropdown">
+                    <li><a class="dropdown-item" href="Link a donde quieres enlazar">Fichas</a></li>
+                    <li><a class="dropdown-item" href="">Requisitos de ingreso</a></li>
+                    <li><a class="dropdown-item" href="">Costos</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="/practicas" id="ofertaDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Oferta educativa
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="ofertaDropdown">
+                    <li><a class="dropdown-item" href="desarrollo">T.S.U en desarrollo en negocios area de
+                        mercadotecnia</a></li>
+                    <li><a class="dropdown-item" href="/gastro">T.S.U en gastronomia</a></li>
+                    <li><a class="dropdown-item" href="/manto">T.S.U en mantenimiento industrial area de instalaciones</a>
+                    </li>
+                    <li><a class="dropdown-item" href="/tics">T.S.U en tecnologias de la informacion area en desarrollo en
+                        software multiplataforma</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="alumnosDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Alumnos
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="alumnosDropdown">
+                    <li><a class="dropdown-item" href="">Servicios escolares</a></li>
+                    <li><a class="dropdown-item" href="">Uniformes</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('finanzas') }}">Tramite de titulacion y cedula academica </a></li>
+                    <li><a class="dropdown-item" href="">Becas</a></li>
+                    <li><a class="dropdown-item" href="">Costos de tramites</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('vinculacion') }}">Vinculacion</a></li>
+                    <li><a class="dropdown-item" href="">Area juridica</a></li>
+                  </ul>
+                </li>
+  
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="transparenciaDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Transparencia
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="transparenciaDropdown">
+                    <li><a class="dropdown-item" href="{{ url_for('reglamento') }}">Reglamentos</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('prensa') }}">Prensa</a></li>
+                    <li><a class="dropdown-item" href="">Plataforma Nacional de transparencia</a></li>
+                  </ul>
+                </li>
+  
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="transparenciaDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <ion-icon name="notifications-outline"></ion-icon>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="transparenciaDropdown">
+                    <li><a class="dropdown-item" href=""><ion-icon name="notifications-off-outline"></ion-icon>
+                        Notificaciones</a></li>
+                    <li><a class="dropdown-item" href=""><ion-icon name="mail-outline"></ion-icon> Buzon de quejas</a>
+                    </li>
+                    <li><a class="dropdown-item" href=""><ion-icon name="alert-circle-outline"></ion-icon> Avisos</a></li>
+                  </ul>
+                </li>
+  
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="" id="transparenciaDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <ion-icon name="settings-outline"></ion-icon>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="transparenciaDropdown">
+                    <li><a class="dropdown-item" href="/usuario">
+                      <ion-icon name="person-outline"></ion-icon>
+                        Perfil </a>
+                    </li>
+                    <li><a class="dropdown-item" href="/logout">
+                      <ion-icon name="reader-outline"></ion-icon>  Calificaciones</a></li>
+                    <li><a class="dropdown-item" href="/horario"><ion-icon name="time-outline"></ion-icon> Horario</a>
+                    </li>
+                    <li><a class="dropdown-item" href="/logout"><ion-icon name="log-out-outline"></ion-icon> Cerrar
+                        sesion</a></li>
+                  </ul>
+                </li>
+  
+              </ul>
+            </div>
+          </nav>
+  
+        </div>
+      </div>
+    </header>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+      window.jQuery || document.write("<script src='js/jquery-3.4.1.min.js'><\/script>");
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  
+
+  <div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<div class="content">
+  <h1>Reglamentos</h1>
+</div>
+
+<img src="/templates/img/alumn.png" alt="alumnos" class="imagen1">
+<img src="/templates/img/biblio.png" alt="biblioteca" class="imagen2">
+<img src="/templates/img/titul.png" alt="titulacion" class="imagen3">
+</body>
+
+</html>

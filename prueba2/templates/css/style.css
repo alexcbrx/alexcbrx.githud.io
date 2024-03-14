@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #06021b;
+}
+
+.navigation {
+    position: fixed; /* Cambiado a fixed */
+    top: 0; /* Añadido */
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(45deg, #f7fbfd, #1ee91e, #2c60f0,  #00fffb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    z-index: 1000; /* Añadido para que esté por encima de otros elementos */
+}
+
+.navigation ul {
+    display: flex;
+    width: 350px;
+}
+
+.navigation ul li {
+    position: relative;
+    width: 70px;
+    height: 70px; /* Corregido el valor */
+    list-style: none;
+    z-index: 1;
+}
+
+.navigation ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500; /* Corregido el valor */
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    color: #fcf9f9;
+    transition: .5s;
+}
+
+.navigation ul li.active a .icon {
+    transform: translateY(32px);
+}
+
+.navigation ul li a .text {
+    position: absolute;
+    color: #fefcfc;
+    font-weight: 400;
+    font-size: .75em;
+    letter-spacing: .05em;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: .5s;
+}
+
+.navigation ul li.active a .text {
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+.navigation ul li a .circle {
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    border: 1.8px solid #fff;
+    transform: translateY(37px) scale(0);
+}
+
+.navigation ul li.active .circle {
+    transform: translateY(37px) scale(0); /* Corregido el selector */
+}
+
+.navigation ul li:nth-child(1).active~.indicator {
+    transform: translateX(calc(70px * 0));
+}
+
+.navigation ul li:nth-child(2).active~.indicator {
+    transform: translateX(calc(70px * 1));
+}
+
+.navigation ul li:nth-child(3).active~.indicator {
+    transform: translateX(calc(70px * 2));
+}
+
+.navigation ul li:nth-child(4).active~.indicator {
+    transform: translateX(calc(70px * 3));
+}
+
+.navigation ul li:nth-child(5).active~.indicator {
+    transform: translateX(calc(70px * 4));
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Establece el alto mínimo del cuerpo al 100% de la altura de la ventana */
+    display: flex;
+    flex-direction: column; /* Establece la dirección del contenedor principal como columna */
+}
+
+.container {
+    margin-top: 70px; /* Ajusta el margen superior para dejar espacio para la barra de navegación fija */
+    padding: 20px; 
+    align-items: center;
+    /* Añade relleno opcional para el contenido */
+}
+
+.text {
+    color: #fff;
+    text-align: center;
+}
+
+.section {
+    color: #fff;
+    text-align: left;
+}
+
+/* CSS para el logo */
+.logo {
+    position: absolute; 
+    height: 300px;
+    width: 300px;
+    right: 7%;
+    border-radius: 80%;
+    margin: 0%;
+    bottom: 200px; /* Ajusta la posición del logo */
+    z-index: 999;
+    filter: brightness(0.8); /* Ajusta el brillo del logo para que se integre con el fondo */
+}
+
+/* CSS para la imagen dentro del logo */
+.logo img {
+    width: 50%; /* Utiliza el 100% del ancho del contenedor */
+    height: 50%; /* Ajusta la altura automáticamente para mantener la proporción */
+    border-radius: 15%; /* Hace que la imagen tenga forma circular */
+    object-fit: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+    background-color: #06021b; /* Establece el color de fondo de la imagen */
+}
+
+/* CSS para el título y el contenido */
+header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 50px;
+    text-align: center; /* Centra el texto */
+    color: #fff;
+}
+
+header h1 {
+    font-size: 4rem;
+}
+
+header h2 {
+    font-size: 2rem;
+}
+
+header h3 {
+    font-size: 1rem;
+}
+
+header p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+header button {
+    padding: 0 5px;
+    width: 140px;
+    outline: none;
+    border: 0;
+    height: 40px;
+    font-weight: 500;
+    background-color: #19a2f7;
+}
+
+/* CSS para la sección */
+.section {
+    text-align: center;
+    padding: 20px; /* Ajusta el relleno */
+    margin-top: 50px; /* Ajusta el margen superior */
+}
+
+/* CSS para la barra de redes sociales */
+.social {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #0983198b; /* Añade un fondo para destacar las redes sociales */
+    z-index: 1000; /* Asegura que la barra de redes sociales esté por encima del contenido */
+}
+
+.social a {
+    margin: 0 10px; /* Añade un margen entre cada icono de red social */
+}
+
+.social img {
+    width: 40px; /* Ajusta el tamaño de los iconos de red social */
+    height: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body,
+html {
+  margin: 0px;
+  padding: 0px;
+  position: fixed;
+  background: black;
+}
+
+.buymeacoffee {
+  text-decoration: none;
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  background: #ffdd00;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  transition: all 0.1s linear;
+  box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buymeacoffee:hover {
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+}
+
+
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Esto envía el canvas al fondo */
+}
+

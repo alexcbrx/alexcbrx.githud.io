@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Universidad Tecnologica de Acapulco</title>
+    <link rel="icon" href="/app/static/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+          :root {
+    --primary-color: #0c3483;
+    --secondary-color: #285a31;
+    --hover-color: #373535;
+  }
+
+  header {
+    margin-bottom: 100px;
+  }
+
+  .logo {
+    width: 65px;
+    position: absolute;
+    top: 15px;
+    left: 35px;
+    z-index: 9999;
+  }
+
+  .navbar {
+    color: #ffffff;
+    background-color: var(--primary-color);
+    padding: 0;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-item {
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color 0.5s, border-radius 0.3s;
+  }
+
+  .nav-item:hover {
+    background-color: var(--hover-color);
+    background-blend-mode: saturation lighten;
+    border-radius: 12px;
+  }
+
+  .nav-item:hover .txt {
+    color: #ffffff;
+    transition: color 0.3s;
+  }
+
+  .dropdown-item {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s, background-color 0.3s, padding 0.3s, backdrop-filter 0.3s;
+  }
+
+  .dropdown-item:hover {
+    color: #ffffff;
+    background-color: var(--hover-color);
+    background-blend-mode: multiply, multiply;
+    padding: auto;
+    backdrop-filter: blur(10px);
+  }
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            background-image: url('https://wallpaperaccess.com/full/2862199.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.8); /* Agrega un fondo blanco semitransparente para mejorar la legibilidad del contenido */
+            border-radius: 10px; /* Añade bordes redondeados al contenedor */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Agrega una sombra al contenedor */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .books-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .book {
+            width: 200px;
+            margin: 10px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .book:hover {
+            transform: scale(1.05);
+        }
+
+        .book img {
+            max-width: 100%;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .book-title {
+            font-size: 16px;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .book-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+  <header>
+    <div id="gMenu" class="container-xxxl fixed-top">
+      <div id="gMenuInner">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div id="spLogo" class="navbar-brand"><a href="{{ url_for('index') }}"><img class="logo"
+                src="/templates/img/common/logo-uta-312371034.png" alt="Universidad Tecnologica de Acapulco"></a></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-around" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('libreria') }}"><span class="icon"><img src="/templates/img/common/icon-library.png"
+                      alt=""></span><span class="txt"><ion-icon name="book-outline"></ion-icon> Biblioteca</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/"><span class="icon"><img src="/templates/img/common/icon-contact.png"
+                      alt=""></span><span class="txt"><ion-icon name="cafe-outline"></ion-icon> Cafeteria</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><span class="icon"><img src="images/common/icon-access.png"
+                      alt=""></span><span class="txt"><ion-icon name="location-outline"></ion-icon> Ubicación</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/ventas"><span class="icon"><img src="/templates/img/common/icon-search.png"
+                      alt=""></span><span class="txt"><ion-icon name="bag-handle-outline"></ion-icon>
+                    Productos</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><span class="icon"><img src="/templates/img/common/icon-contact.png"
+                      alt=""></span><span class="txt"><ion-icon name="card-outline"></ion-icon> Pagos </span></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-around" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="quienesSomosDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  ¿Quienes somos?
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="quienesSomosDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('rectoria') }}">Rectoria</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('psicologia') }}">Psicologia</a></li>
+                  <li><a class="dropdown-item" href="">historia</a></li>
+                  <li><a class="dropdown-item" href="">Modelo educativo</a></li>
+                  <li><a class="dropdown-item" href="">Directorio</a></li>
+                  <li><a class="dropdown-item" href="">Red Conocer</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="aspirantesDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Aspirantes
+                </a>
+                <ul class="dropdown-menu" href="" aria-labelledby="aspirantesDropdown">
+                  <li><a class="dropdown-item" href="Link a donde quieres enlazar">Fichas</a></li>
+                  <li><a class="dropdown-item" href="">Requisitos de ingreso</a></li>
+                  <li><a class="dropdown-item" href="">Costos</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/practicas" id="ofertaDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Oferta educativa
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="ofertaDropdown">
+                  <li><a class="dropdown-item" href="desarrollo">T.S.U en desarrollo en negocios area de
+                      mercadotecnia</a></li>
+                  <li><a class="dropdown-item" href="/gastro">T.S.U en gastronomia</a></li>
+                  <li><a class="dropdown-item" href="/manto">T.S.U en mantenimiento industrial area de instalaciones</a>
+                  </li>
+                  <li><a class="dropdown-item" href="/tics">T.S.U en tecnologias de la informacion area en desarrollo en
+                      software multiplataforma</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="alumnosDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Alumnos
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="alumnosDropdown">
+                  <li><a class="dropdown-item" href="">Servicios escolares</a></li>
+                  <li><a class="dropdown-item" href="">Uniformes</a></li>
+                  <li><a class="dropdown-item" href="">Tramite de titulacion y cedula academica </a></li>
+                  <li><a class="dropdown-item" href="">Becas</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('finanzas') }}">Costos de tramites</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('vinculacion') }}">Vinculacion</a></li>
+                  <li><a class="dropdown-item" href="">Area juridica</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="transparenciaDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Transparencia
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="transparenciaDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('reglamento') }}">Reglamentos</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('prensa') }}">Prensa</a></li>
+                  <li><a class="dropdown-item" href="">Plataforma Nacional de transparencia</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="transparenciaDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <ion-icon name="notifications-outline"></ion-icon>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="transparenciaDropdown">
+                  <li><a class="dropdown-item" href=""><ion-icon name="notifications-off-outline"></ion-icon>
+                      Notificaciones</a></li>
+                  <li><a class="dropdown-item" href=""><ion-icon name="mail-outline"></ion-icon> Buzon de quejas</a>
+                  </li>
+                  <li><a class="dropdown-item" href=""><ion-icon name="alert-circle-outline"></ion-icon> Avisos</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="transparenciaDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <ion-icon name="settings-outline"></ion-icon>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="transparenciaDropdown">
+                  <li><a class="dropdown-item" href="/usuario">
+                    <ion-icon name="person-outline"></ion-icon>
+                      Perfil </a>
+                  </li>
+                  <li><a class="dropdown-item" href="/logout">
+                    <ion-icon name="reader-outline"></ion-icon>  Calificaciones</a></li>
+                  <li><a class="dropdown-item" href="/horario"><ion-icon name="time-outline"></ion-icon> Horario</a>
+                  </li>
+                  <li><a class="dropdown-item" href="/logout"><ion-icon name="log-out-outline"></ion-icon> Cerrar
+                      sesion</a></li>
+                </ul>
+              </li>
+
+            </ul>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+  </header>
+    <div class="container">
+        <div class="container-libro">
+            <h1 class="mb-4">Biblioteca</h1>
+        
+            <div class="row">
+              <div class="col-md-6">
+                <form id="formularioLibro">
+                  <div class="mb-4">
+                    <label for="tituloLibro" class="form-label">Título del libro:</label>
+                    <input type="text" class="form-control" id="tituloLibro" name="tituloLibro">
+                  </div>
+                  <div class="mb-4">
+                    <label for="autorLibro" class="form-label">Autor del libro:</label>
+                    <input type="text" class="form-control" id="autorLibro" name="autorLibro">
+                  </div>
+                  <button type="button" class="btn btn-primary" onclick="agregarLibro()">Buscar libro</button>
+                </form>
+              </div>
+        
+              <div class="col-md-6">
+                <h2 class="mb-4">Listado de Libros</h2>
+                <ul id="listaLibros" class="list-group">
+                  <!-- La lista de libros se mostrará aquí dinámicamente -->
+                </ul>
+              </div>
+            </div>
+
+        
+        <div class="books-container">
+            <div class="book">
+                <img src="https://imgs.search.brave.com/iENiXN4x6LkJBWT_OJS8KRLYkOKylrcsABbRcSgxwyI/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9OUV9OUF83/NDIwMjEtTUxNNDYz/NjYzNTk4MjJfMDYy/MDIxLVcud2VicA" alt="Book Cover">
+                <div class="book-details">
+                    <h2 class="book-title">Clean Code de Robert C. Martin</h2>
+                    <p class="book-description">Este es uno de los mejores libros clásicos para principiantes ya que te enseñará todos los trucos y patrones para escribir código bueno y limpio porque no todos los códigos que se ejecutan son un código limpio.  </p>
+                </div>
+            </div>
+            <div class="book">
+                <img src="https://www.gastroactitud.com/wp-content/uploads/2020/01/Libros-Gastroactitud-2019-Pe%CC%81rez-Samper-208x300.jpeg" alt="Book Cover">
+                <div class="book-details">
+                    <h2 class="book-title">Raíces </h2>
+                    <p class="book-description">Este libro pone en valor el trabajo de los productores, del primer eslabón de la cadena alimentaria, esas personas que hacen posible que podamos disfrutar de productos únicos y maravillosos. Esos de los que tantas veces nos olvidamos y a quienes GastroActitud siempre rinde homenaje.</p>
+                </div>
+            </div>
+            <div class="book">
+                <img src="https://m.media-amazon.com/images/I/51oOT+TNuML.jpg" alt="Book Cover">
+                <div class="book-details">
+                    <h2 class="book-title">Teorias y practicas de mantenimiento</h2>
+                    <p class="book-description">Este libro pretende dar respuesta a un gran número de preguntas que, a menudo, se hacen los Directores Técnicos de Empresa y sus Jefes de Mantenimiento.</p>
+                </div>
+            </div>
+            <div class="book">
+                <img src="https://kinsta.com/wp-content/uploads/2021/10/rich-dad-poor-dad-book-679x1024.jpg" alt="Book Cover">
+                <div class="book-details">
+                    <h2 class="book-title">Padre Rico Padre Pobre de Robert Kiyosaki </h2>
+                    <p class="book-description">El libro de Robert Kiyosaki «Padre rico, padre pobre » se ha convertido en el libro de finanzas personales más importante de todos los tiempos. Kiyosaki comparte la historia de su crecimiento con dos influencias paternas: la suya propia y la de su amigo cercano, el «padre rico»</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+
+    
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  function agregarLibro() {
+    var titulo = document.getElementById('tituloLibro').value;
+    var autor = document.getElementById('autorLibro').value;
+
+    if (titulo && autor) {
+      // Usa la API de Google Books para obtener información del libro
+      fetch(`https://www.googleapis.com/books/v1/volumes?q=${titulo}+inauthor:${autor}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.items && data.items.length > 0) {
+            var infoLibro = data.items[0].volumeInfo;
+            var listaLibros = document.getElementById('listaLibros');
+            var nuevoLibro = document.createElement('li');
+            nuevoLibro.className = 'list-group-item';
+            nuevoLibro.innerHTML = `<strong>${infoLibro.title}</strong> - ${infoLibro.authors.join(', ')}`;
+            listaLibros.appendChild(nuevoLibro);
+
+            // Agrega un enlace a la página de Google Books para leer
+            var enlaceLeer = document.createElement('a');
+            enlaceLeer.href = infoLibro.infoLink;
+            enlaceLeer.target = '_blank';
+            enlaceLeer.innerText = 'Leer en Google Books';
+            nuevoLibro.appendChild(document.createElement('br')); // Agrega un salto de línea
+            nuevoLibro.appendChild(enlaceLeer);
+
+            // Agrega imágenes de los libros dinámicamente
+            var contenedorImagenes = document.querySelector('.book-images');
+            var nuevaImagen = document.createElement('img');
+            nuevaImagen.src = infoLibro.imageLinks ? infoLibro.imageLinks.thumbnail : 'https://via.placeholder.com/150';
+            nuevaImagen.alt = infoLibro.title;
+            contenedorImagenes.appendChild(nuevaImagen);
+          } else {
+            alert('Libro no encontrado. Intenta con otro título o autor.');
+          }
+        })
+        .catch(error => {
+          console.error('Error al obtener información del libro:', error);
+        });
+
+      // Limpia los campos después de agregar el libro
+      document.getElementById('tituloLibro').value = '';
+      document.getElementById('autorLibro').value = '';
+    }
+  }
+
+ 
+</script>
+</html>
